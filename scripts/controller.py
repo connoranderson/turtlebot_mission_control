@@ -1,7 +1,5 @@
 #!/usr/bin/env python
 
-# FILL ME IN!
-
 import rospy
 from gazebo_msgs.msg import ModelStates
 from geometry_msgs.msg import Twist
@@ -110,6 +108,8 @@ class Controller:
 
         # Distance to final point in current path
         rho = np.linalg.norm(np.asarray(self.x_goal[0:2]) - np.asarray([self.x, self.y]))
+
+        print rho
 
         # Define relevant control parameters
         alpha = wrapToPi(np.arctan2(self.y_g - self.y, self.x_g - self.x) - self.th)
